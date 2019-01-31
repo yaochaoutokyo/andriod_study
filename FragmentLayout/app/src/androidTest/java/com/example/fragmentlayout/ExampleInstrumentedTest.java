@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo;
+package com.example.fragmentlayout;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.recycleviewdemo", appContext.getPackageName());
+        assertEquals("com.example.fragmentlayout", appContext.getPackageName());
     }
 }

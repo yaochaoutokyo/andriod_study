@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo;
+package com.example.fragmentlayout;
 
 import org.junit.Test;
 
