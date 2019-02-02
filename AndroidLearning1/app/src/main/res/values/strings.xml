@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidLearning1</string>
+    <string name="text_view1">HelloWorld</string>
+    <string name="baidu">http://www.baidu.com</string>
+    <string name="long_string">very looooooooooooooooooooooooooooooooooooog string</string>
+    <string name="hint1">please enter</string>
+    <string name="strange_button">strange button</string>
+    <string name="normal_button">normal button</string>
+</resources>

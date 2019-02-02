@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textview1"
+        android:layout_alignTop="@id/textview1"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:text="@string/baidu"
+        android:autoLink="web"/>
+
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="@string/long_string"/>
+
+    <EditText
+        android:id="@+id/edittext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_below="@id/textview3"
+        android:selectAllOnFocus="true"
+        android:hint="@string/hint1"
+        android:textColorHint="@color/colorPrimaryDark"/>
+
+    <EditText
+        android:id="@+id/edittext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext1"
+        android:inputType="textEmailAddress" />
+    
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="64dp"
+        android:layout_below="@+id/edittext2"
+        android:layout_height="64dp"
+        android:background="@drawable/btn_2"
+        android:text="@string/strange_button"/>
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_toRightOf="@+id/btn1"
+        android:layout_alignTop="@id/btn1"
+        android:layout_marginLeft="5dp"
+        android:text="@string/normal_button"/>
+    
+    <ImageButton
+        android:id="@+id/btn3"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_toRightOf="@id/btn2"
+        android:layout_alignTop="@id/btn2"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/mybird6"
+        android:scaleType="center"/>
+
+    <ImageView
+        android:id="@+id/imageview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btn3"
+        android:layout_alignTop="@id/btn3"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mybird6"/>
+
+    <ImageView
+        android:id="@+id/imageview2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/btn1"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mybird7"
+        android:background="@color/colorPrimaryDark"/>
+
+    <RadioGroup
+        android:id="@+id/btn_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageview2"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/imageview2"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="male"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radio_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="female"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_toRightOf="@id/btn_group"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/btn_group"
+        android:text="submit"
+        android:textSize="10dp"/>
+    
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_group"
+        android:layout_alignLeft="@id/btn_group"
+        android:layout_marginTop="5dp"
+        android:text="opt1"/>
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkbox1"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/checkbox1"
+        android:text="opt2"/>
+
+</RelativeLayout>
