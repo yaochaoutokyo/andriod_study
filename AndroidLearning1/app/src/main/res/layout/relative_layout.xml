@@ -128,7 +128,7 @@
         android:layout_toRightOf="@id/btn_group"
         android:layout_marginLeft="5dp"
         android:layout_alignTop="@id/btn_group"
-        android:text="submit"
+        android:text="submit1"
         android:textSize="10dp"/>
     
     <CheckBox
@@ -148,5 +148,102 @@
         android:layout_marginLeft="5dp"
         android:layout_alignTop="@id/checkbox1"
         android:text="opt2"/>
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_toRightOf="@id/checkbox2"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/checkbox2"
+        android:text="submit2"
+        android:textSize="10dp"/>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageview2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:textOff=""
+        android:text=""
+        android:textOn=""
+        android:track="@drawable/ios_track_selector"
+        android:thumb="@drawable/ios_thumb_selector"
+        android:switchMinWidth="30dp" />
+
+    <ToggleButton
+        android:id="@+id/togglebtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/switch1"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:textOff="off"
+        android:textOn="on"
+        android:background="@drawable/ios_track_selector"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar1"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/switch1"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/switch1"
+        android:progress="0"
+        android:max="100"
+        android:indeterminate="false"
+        android:background="@drawable/ios_track_checked"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="-6dp"
+        android:text="start"
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/progressbar1"
+        android:layout_alignTop="@id/progressbar1"
+        android:layout_marginLeft="5dp" />
+
+    <SeekBar
+        android:id="@+id/seekbar1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressbar1"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/togglebtn1"
+        android:layout_marginLeft="5dp"
+        android:progress="0"
+        android:max="100"
+        android:maxHeight="5dp"
+        android:minHeight="5dp" />
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/seekbar1"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/seekbar1"
+        android:layout_marginTop="13dp"
+        android:textSize="10dp"
+        android:text="0/100"/>
+
+    <RatingBar
+        android:id="@+id/ratingbar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="1.2"
+        android:layout_below="@id/togglebtn1"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:stepSize="0.1"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp" />
 
 </RelativeLayout>

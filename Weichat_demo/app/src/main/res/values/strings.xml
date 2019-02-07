@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weichat_demo</string>
+    <item name="tag_nomral" type="id"></item>
+    <item name="tag_reverse" type="id"></item>
 </resources>

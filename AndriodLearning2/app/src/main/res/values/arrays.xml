@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="strs1">
+        <item>Huawei</item>
+        <item>Xiaomi</item>
+        <item>Oppo</item>
+        <item>Vivo</item>
+        <item>Apple</item>
+        <item>Nokia</item>
+    </string-array>
+</resources>

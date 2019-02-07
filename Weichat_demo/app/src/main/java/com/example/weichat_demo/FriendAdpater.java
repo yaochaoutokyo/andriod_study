@@ -45,8 +45,8 @@ public class FriendAdpater extends BaseAdapter {
 //	@Override
 //	public View getView(int position, View convertView, ViewGroup parent) {
 //
-//		convertView = LayoutInflater.from(context).inflate(R.layout.icon_info_bar, parent,false);
-//		ImageView icon = convertView.findViewById(R.id.icon);
+//		convertView = LayoutInflater.from(context).inflate(R.layout.icon_info_item, parent,false);
+//		ImageView icon = convertView.findViewById(R.id.figure);
 //		TextView name = convertView.findViewById(R.id.name);
 //		TextView says = convertView.findViewById(R.id.says);
 //		icon.setImageResource(friends.get(position).getIconId());
@@ -60,11 +60,11 @@ public class FriendAdpater extends BaseAdapter {
 	// 优化后代码
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		FriendViewHolder friendViewHolder = null; //
+		FriendViewHolder friendViewHolder; //
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.icon_info_bar, parent,false);
+			convertView = LayoutInflater.from(context).inflate(R.layout.icon_info_item, parent,false);
 			friendViewHolder = new FriendViewHolder();
-			friendViewHolder.icon = convertView.findViewById(R.id.icon);
+			friendViewHolder.icon = convertView.findViewById(R.id.figure);
 			friendViewHolder.name = convertView.findViewById(R.id.name);
 			friendViewHolder.says = convertView.findViewById(R.id.says);
 			convertView.setTag(friendViewHolder); // 保存ViewHolder
@@ -77,5 +77,13 @@ public class FriendAdpater extends BaseAdapter {
 		friendViewHolder.says.setText(friends.get(position).getSays());
 
 		return convertView;
+	}
+
+	class FriendViewHolder {
+		public ImageView icon;
+
+		public TextView name;
+
+		public TextView says;
 	}
 }
