@@ -2,47 +2,101 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="select your friend:"/>
-
-    <Spinner
-        android:id="@+id/spinner1"
+    <LinearLayout
+        android:id="@+id/linear_main_1"
         android:layout_width="match_parent"
-        android:layout_toRightOf="@id/textview1"
-        android:layout_marginLeft="5dp"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textview_current_account"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="user account:"/>
+
+        <TextView
+            android:id="@+id/textview_current_account_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_alignTop="@id/textview_current_account"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignTop="@id/linear_main_1"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
-        android:layout_alignTop="@id/textview1"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"></Spinner>
+        android:text="Logout"/>
 
-    <TextView
-        android:id="@+id/textview2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner1"
-        android:layout_marginTop="5dp"
-        android:text="search your friend"/>
-
-    <MultiAutoCompleteTextView
-        android:id="@+id/mac_textview1"
+    <LinearLayout
+        android:id="@+id/linear_main_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/textview2"
-        android:layout_alignTop="@id/textview2"
-        android:completionHint="friend name"
-        android:hint="enter friend name"
-        android:textSize="10dp"
-        android:completionThreshold="1"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@id/linear_main_1"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="10dp"
+            android:text="select friend:"/>
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_main_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@id/linear_main_2">
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="10dp"
+            android:text="search friend"/>
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/mac_textview1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionHint="friend name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="enter friend name"
+            android:textSize="10dp"
+            android:completionThreshold="1"/>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listview1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/mac_textview1"
+        android:layout_below="@id/linear_main_3"
         android:layout_marginTop="5dp"
         android:descendantFocusability="blocksDescendants"></ListView>
         <!--ListView的焦点问题的解决方法-->

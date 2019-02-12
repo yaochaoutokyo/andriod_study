@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_ac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="replace frag"/>
+
+        <Button
+            android:id="@+id/btn_ac2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show frag-content"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/static_frag"
+        android:name="com.example.andriodlearning13.fragment.StaticFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"></fragment>
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

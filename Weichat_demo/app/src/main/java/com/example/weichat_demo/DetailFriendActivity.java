@@ -3,17 +3,18 @@ package com.example.weichat_demo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.weichat_demo.tools.BaseActivity;
+
 /**
  * Created by yaochao on 2019/02/06
  */
-public class DetailFriendActivity extends AppCompatActivity {
+public class DetailFriendActivity extends BaseActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		Log.i("test", "Detail-OnCreate()");

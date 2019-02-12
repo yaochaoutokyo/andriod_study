@@ -9,6 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".TestIntentService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="test_intent_service" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".TestBindService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="test_bind_service" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".TestService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="test_service" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".PersonAIDLService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="person_aidl_service" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

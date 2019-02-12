@@ -33,7 +33,6 @@
             android:textColor="#B4B4B9"
             android:singleLine="true"
             android:textSize="14sp" />
-
     </LinearLayout>
 
 </LinearLayout>

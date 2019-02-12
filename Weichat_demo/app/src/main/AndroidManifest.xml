@@ -9,21 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailFriendActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
-        <activity android:name=".FriendChooseActivity"
-            android:parentActivityName=".FriendChooseActivity">
-        </activity>
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name=".DetailFriendActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity android:name=".FriendChooseActivity"></activity>
+
+        <activity android:name=".MainActivity"></activity>
+
+        <service android:name=".service.StopMultiLoginService"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.StopMultiLoginService"></action>
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".receiver.MultiLoginBBReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MultiLoginBBReceiver"></action>
+            </intent-filter>
+        </receiver>
+    </application>
+    // 弹出对话框权限
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+    // 消灭后台进程权限
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"></uses-permission>
 </manifest>

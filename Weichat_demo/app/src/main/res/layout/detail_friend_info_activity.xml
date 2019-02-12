@@ -6,8 +6,8 @@
         android:id="@+id/big_figure"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="30dp"
-        android:scaleType="centerInside"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitXY"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -28,32 +28,38 @@
         android:layout_centerHorizontal="true"
         android:textSize="20dp"/>
 
-    <ImageView
-        android:id="@+id/figure_best_friend"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/big_says"
-        android:layout_marginTop="10dp"
+
+    <LinearLayout
+        android:id="@+id/linear_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerInside" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@id/big_says"
+        android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/textview_best_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/figure_best_friend"
-        android:layout_marginRight="5dp"
-        android:layout_alignTop="@id/figure_best_friend"
-        android:text="Best friend: "
-        android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textview_best_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best friend: "
+            android:textSize="20dp"/>
 
-    <Button
-        android:id="@+id/btn_choose_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/figure_best_friend"
-        android:layout_alignTop="@id/figure_best_friend"
-        android:layout_marginLeft="5dp"
-        android:text="choose" />
+        <ImageView
+            android:id="@+id/figure_best_friend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="centerInside" />
+
+        <Button
+            android:id="@+id/btn_choose_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="choose" />
+    </LinearLayout>
+
 
 </RelativeLayout>

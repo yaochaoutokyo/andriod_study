@@ -1,33 +1,42 @@
 package com.example.weichat_demo;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+import com.example.weichat_demo.entity.Friend;
+import com.example.weichat_demo.entity.SpinnerFriend;
+import com.example.weichat_demo.receiver.MultiLoginBBReceiver;
+import com.example.weichat_demo.tools.ActivityCollector;
+import com.example.weichat_demo.tools.BaseActivity;
+import com.example.weichat_demo.tools.UniversalAdapter;
+import com.example.weichat_demo.tools.UserCollecter;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 	private LinkedList<Friend> friends = new LinkedList<>();
-	private FriendAdpater friendAdpater;
 	private UniversalAdapter universalAdapter;
 	private LinkedList<SpinnerFriend> spinnerFriends = new LinkedList<>();
 	private List<String> names = new ArrayList<>();
 	private boolean isExit = false;
-
 	private boolean spinnerSelected = false;
+	private MultiLoginBBReceiver multiLoginBBReceiver;
 
 	public void fillData() {
 		friends.add(new Friend(R.mipmap.icon1,"Tom","studying Andriod now" ));
@@ -47,11 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.i("test", "Main-OnCreate()");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
 		fillData();
-		friendAdpater = new FriendAdpater(friends, MainActivity.this);
 		universalAdapter = new UniversalAdapter<Friend>(friends, R.layout.icon_info_item) {
 			@Override
 			public void bindView(ViewHolder holder, Friend obj) {
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 		};
 
 		final ListView listView1 = findViewById(R.id.listview1);
-		//listView1.setAdapter(friendAdpater);
+
 		listView1.setAdapter(universalAdapter);
 
 		listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		// 下拉列表功能
 		UniversalAdapter<SpinnerFriend> spinnerFriendUniversalAdapter =
 				new UniversalAdapter<SpinnerFriend>(spinnerFriends, R.layout.spinner_icon_info_item) {
 			@Override
@@ -106,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-
+		// 自动查询功能
 		MultiAutoCompleteTextView macView = findViewById(R.id.mac_textview1);
 		for (int i = 0; i < friends.size(); i++) {
 			names.add(friends.get(i).getName());
@@ -115,6 +123,22 @@ public class MainActivity extends AppCompatActivity {
 				android.R.layout.simple_dropdown_item_1line, names);
 		macView.setAdapter(namesAdapter);
 		macView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+
+		// 账户信息与登出功能
+		TextView accountInfo = findViewById(R.id.textview_current_account_info);
+		accountInfo.setText(UserCollecter.getCurrentUser().getAccount());
+
+		Button btnLogout = findViewById(R.id.button_logout);
+		btnLogout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				UserCollecter.removeCurrentUser();
+				startActivity(new Intent(MainActivity.this, LoginActivity.class));
+				Toast.makeText(MainActivity.this, "logout successfully", Toast.LENGTH_SHORT).show();
+				finish();
+			}
+		});
 	}
 
 	// 双击退出功能
@@ -130,45 +154,24 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			Log.i("onKeyDown", "KeyEvent.KEYCODE_BACK");
 			if (! isExit) {
 				isExit = true;
 				Toast.makeText(getApplicationContext(), "double click to exit the App", Toast.LENGTH_LONG).show();
 				exitHandler.sendEmptyMessageDelayed(0x222, 2000);
 			} else {
-				System.exit(0);
+				appExit(this);
 			}
 		}
 		return false;
 	}
 
-	@Override
-	protected void onStart() {
-		Log.i("test", "Main-OnStart()");
-		super.onStart();
-	}
-
-	@Override
-	protected void onResume() {
-		Log.i("test", "Main-OnResume()");
-		super.onResume();
-	}
-
-	@Override
-	protected void onPause() {
-		Log.i("test", "Main-OnPause()");
-		super.onPause();
-	}
-
-	@Override
-	protected void onStop() {
-		Log.i("test", "Main-OnStop()");
-		super.onStop();
-	}
-
-	@Override
-	protected void onDestroy() {
-		Log.i("test", "Main-OnDestroy()");
-		super.onDestroy();
+	public void appExit(Context context) {
+		try {
+			ActivityCollector.finishAll();
+			ActivityManager activityMgr = (ActivityManager) context
+					.getSystemService(Context.ACTIVITY_SERVICE);
+			activityMgr.killBackgroundProcesses(context.getPackageName());
+			System.exit(0);
+		} catch (Exception ignored) {}
 	}
 }

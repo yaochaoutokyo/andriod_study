@@ -3,7 +3,6 @@ package com.example.weichat_demo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.weichat_demo.tools.BaseActivity;
+
 /**
  * Created by yaochao on 2019/02/06
  */
-public class FriendChooseActivity extends AppCompatActivity {
+public class FriendChooseActivity extends BaseActivity {
 	public int[] iconIds = {
 			R.mipmap.icon1, R.mipmap.icon2, R.mipmap.icon3, R.mipmap.icon4, R.mipmap.icon5,
 			R.mipmap.icon6, R.mipmap.icon7, R.mipmap.icon8, R.mipmap.icon9
