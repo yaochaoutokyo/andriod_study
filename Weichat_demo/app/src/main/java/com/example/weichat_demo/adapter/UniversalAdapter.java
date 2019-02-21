@@ -1,4 +1,4 @@
-package com.example.weichat_demo.tools;
+package com.example.weichat_demo.adapter;
 
 import android.content.Context;
 import android.util.SparseArray;

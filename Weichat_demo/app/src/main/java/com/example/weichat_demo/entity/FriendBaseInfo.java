@@ -3,7 +3,7 @@ package com.example.weichat_demo.entity;
 /**
  * Created by yaochao on 2019/02/03
  */
-public class Friend {
+public class FriendBaseInfo {
 
 	private int iconId;
 
@@ -11,10 +11,10 @@ public class Friend {
 
 	private String says;
 
-	public Friend() {
+	public FriendBaseInfo() {
 	}
 
-	public Friend(int iconId, String name, String says) {
+	public FriendBaseInfo(int iconId, String name, String says) {
 		this.iconId = iconId;
 		this.name = name;
 		this.says = says;

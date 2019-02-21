@@ -27,6 +27,7 @@ public class MultiLoginBBReceiver extends BroadcastReceiver {
 				ActivityCollector.finishAll();
 				UserCollecter.removeCurrentUser();
 				Intent intentToLogin = new Intent(context, LoginActivity.class);
+				intentToLogin.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				intentToLogin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intentToLogin);
 			}

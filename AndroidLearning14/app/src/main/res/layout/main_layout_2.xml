@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relative_top_bar_2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorTopBar">
+
+        <TextView
+            android:id="@+id/text_top_bar_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Friend"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btn_goto_main3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Goto3"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radiogroup_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBottomBar"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_message"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_message_2"
+            android:text="Message"/>
+
+        <RadioButton
+            android:id="@+id/radio_contact"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_channel_2"
+            android:text="Contact"/>
+
+        <RadioButton
+            android:id="@+id/radio_moments"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_better_2"
+            android:text="Moments"></RadioButton>
+
+        <RadioButton
+            android:id="@+id/radio_account"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_my_2"
+            android:text="Account"/>
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/content_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relative_top_bar_2"
+        android:layout_above="@id/radiogroup_bottom_bar">
+    </FrameLayout>
+
+</RelativeLayout>

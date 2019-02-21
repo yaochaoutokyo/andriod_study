@@ -3,46 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linear_main_1"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/textview_current_account"
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="user account:"/>
-
-        <TextView
-            android:id="@+id/textview_current_account_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            android:layout_alignTop="@id/textview_current_account"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_alignTop="@id/linear_main_1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:text="Logout"/>
-
-    <LinearLayout
         android:id="@+id/linear_main_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_below="@id/linear_main_1"
         android:layout_marginTop="5dp">
 
         <TextView

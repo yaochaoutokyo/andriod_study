@@ -1,23 +1,25 @@
 package com.example.androidlearning14;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 	private TextView txtTopBar;
+	private Button btnGoTo2;
 
 	private TextView txtMessage;
 	private TextView txtContact;
 	private TextView txtMoments;
 	private TextView txtAccount;
-	private FrameLayout contentView;
 	private FragmentManager fManager;
 	private ContentFragment fg1, fg2, fg3, fg4;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private void bindView() {
 		txtTopBar = findViewById(R.id.text_top_bar);
+		btnGoTo2 = findViewById(R.id.btn_goto_main2);
 
 		txtMessage = findViewById(R.id.text_message);
 		txtContact = findViewById(R.id.text_channel);
@@ -44,8 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		txtMoments.setOnClickListener(this);
 		txtAccount.setOnClickListener(this);
 
-		contentView = findViewById(R.id.content);
 		fManager = getSupportFragmentManager();
+
+		btnGoTo2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	private void resetSelected() {
