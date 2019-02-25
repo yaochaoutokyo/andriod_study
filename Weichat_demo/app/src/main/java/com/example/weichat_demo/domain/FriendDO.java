@@ -1,19 +1,35 @@
 package com.example.weichat_demo.domain;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by yaochao on 2019/02/21
  */
-public class FriendDO {
+public class FriendDO extends RealmObject {
+
+	@PrimaryKey
+	private int id;
 
 	private String name;
 
 	private String says;
 
-	private int iconId;
+	private byte[] iconBytes;
 
-	private Integer phoneNumber;
+	private String phoneNumber;
 
 	private String email;
+
+	private Integer bestFriendId;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -31,19 +47,19 @@ public class FriendDO {
 		this.says = says;
 	}
 
-	public int getIconId() {
-		return iconId;
+	public byte[] getIconBytes() {
+		return iconBytes;
 	}
 
-	public void setIconId(int iconId) {
-		this.iconId = iconId;
+	public void setIconBytes(byte[] iconBytes) {
+		this.iconBytes = iconBytes;
 	}
 
-	public Integer getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Integer phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -53,5 +69,13 @@ public class FriendDO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getBestFriendId() {
+		return bestFriendId;
+	}
+
+	public void setBestFriendId(Integer bestFriendId) {
+		this.bestFriendId = bestFriendId;
 	}
 }

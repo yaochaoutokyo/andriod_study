@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.weichat_demo.LoginActivity;
 import com.example.weichat_demo.R;
 import com.example.weichat_demo.entity.User;
-import com.example.weichat_demo.tools.UserCollecter;
+import com.example.weichat_demo.utils.UserCollecter;
 
 /**
  * Created by yaochao on 2019/02/12

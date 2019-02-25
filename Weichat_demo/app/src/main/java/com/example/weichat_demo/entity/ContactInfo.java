@@ -1,11 +1,13 @@
 package com.example.weichat_demo.entity;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by yaochao on 2019/02/21
  */
 public class ContactInfo {
 
-	private int contactIconId;
+	private Bitmap contactBitmap;
 
 	private String contactName;
 
@@ -13,19 +15,15 @@ public class ContactInfo {
 
 	private String contactEmail;
 
-	public ContactInfo(int contactIconId, String contactName, String contactPhone, String contactEmail) {
-		this.contactIconId = contactIconId;
-		this.contactName = contactName;
-		this.contactPhone = contactPhone;
-		this.contactEmail = contactEmail;
+	public ContactInfo() {
 	}
 
-	public int getContactIconId() {
-		return contactIconId;
+	public Bitmap getContactBitmap() {
+		return contactBitmap;
 	}
 
-	public void setContactIconId(int contactIconId) {
-		this.contactIconId = contactIconId;
+	public void setContactBitmap(Bitmap contactBitmap) {
+		this.contactBitmap = contactBitmap;
 	}
 
 	public String getContactName() {

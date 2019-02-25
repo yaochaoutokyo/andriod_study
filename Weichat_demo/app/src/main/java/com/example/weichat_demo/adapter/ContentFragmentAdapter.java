@@ -8,14 +8,16 @@ import com.example.weichat_demo.fragment.AccountFragment;
 import com.example.weichat_demo.fragment.ContactFragment;
 import com.example.weichat_demo.fragment.ContentFragment;
 import com.example.weichat_demo.fragment.MessageFragment;
+import com.example.weichat_demo.fragment.MomentsFragment;
 
 /**
  * Created by yaochao on 2019/02/12
  */
+@Deprecated
 public class ContentFragmentAdapter extends FragmentPagerAdapter {
 
 	private final int PAGE_COUNT = 4;
-	private ContentFragment momentsFrag;
+	private MomentsFragment momentsFrag;
 	private AccountFragment accountFrag;
 	private MessageFragment messageFrag;
 	private ContactFragment contactFrag;
@@ -24,7 +26,7 @@ public class ContentFragmentAdapter extends FragmentPagerAdapter {
 		super(fm);
 		messageFrag = new MessageFragment();
 		contactFrag = new ContactFragment();
-		momentsFrag = ContentFragment.newInstance("Moments", "share your moments with your friends");
+		momentsFrag = new MomentsFragment();
 		accountFrag = new AccountFragment();
 	}
 

@@ -7,8 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.WindowManager;
 import com.example.weichat_demo.LoginActivity;
-import com.example.weichat_demo.tools.ActivityCollector;
-import com.example.weichat_demo.tools.UserCollecter;
+import com.example.weichat_demo.utils.ActivityCollector;
+import com.example.weichat_demo.utils.UserCollecter;
 
 /**
  * Created by yaochao on 2019/02/09

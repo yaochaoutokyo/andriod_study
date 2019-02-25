@@ -1,5 +1,7 @@
-package com.example.weichat_demo.tools;
+package com.example.weichat_demo.utils;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -25,5 +27,16 @@ public class ActivityCollector {
 				activity.finish();
 			}
 		}
+	}
+
+	// 彻底退出app
+	public static void appExit(Context context) {
+		try {
+			ActivityCollector.finishAll();
+			ActivityManager activityMgr = (ActivityManager) context
+					.getSystemService(Context.ACTIVITY_SERVICE);
+			activityMgr.killBackgroundProcesses(context.getPackageName());
+			System.exit(0);
+		} catch (Exception ignored) {}
 	}
 }

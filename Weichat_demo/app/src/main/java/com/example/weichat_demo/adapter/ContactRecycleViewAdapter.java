@@ -37,7 +37,7 @@ public class ContactRecycleViewAdapter extends RecyclerView.Adapter<ContactRecyc
 	@Override
 	public void onBindViewHolder(@NonNull ContactRecycleViewAdapter.ContactRecycleViewHolder viewHolder, int i) {
 		Log.i("Contact", "onBindViewHolder");
-		viewHolder.imgContactIcon.setImageResource(contactInfoList.get(i).getContactIconId());
+		viewHolder.imgContactIcon.setImageBitmap(contactInfoList.get(i).getContactBitmap());
 		viewHolder.txtContactName.setText(contactInfoList.get(i).getContactName());
 		viewHolder.txtContactPhone.setText(contactInfoList.get(i).getContactPhone());
 		viewHolder.txtContactEmail.setText(contactInfoList.get(i).getContactEmail());

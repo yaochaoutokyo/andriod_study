@@ -2,30 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/linear_main_2"
+    <Button
+        android:id="@+id/btn_insert_new_friend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="5dp">
-
-        <TextView
-            android:id="@+id/textview1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:textSize="10dp"
-            android:text="select friend:"/>
-
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"></Spinner>
-    </LinearLayout>
+        android:text="add new friend"/>
 
     <LinearLayout
         android:id="@+id/linear_main_3"
@@ -34,14 +15,14 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_below="@id/linear_main_2">
+        android:layout_below="@id/btn_insert_new_friend">
 
         <TextView
             android:id="@+id/textview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textSize="10dp"
+            android:textSize="20sp"
             android:text="search friend"/>
 
         <MultiAutoCompleteTextView

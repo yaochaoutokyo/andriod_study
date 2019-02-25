@@ -3,6 +3,7 @@ package com.example.weichat_demo;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,22 +11,25 @@ import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.weichat_demo.entity.User;
-import com.example.weichat_demo.tools.ActivityCollector;
-import com.example.weichat_demo.tools.BaseActivity;
-import com.example.weichat_demo.tools.UserCollecter;
+import com.example.weichat_demo.utils.ActivityCollector;
+import com.example.weichat_demo.template.MyActivity;
+import com.example.weichat_demo.utils.UserCollecter;
 
 /**
  * Created by yaochao on 2019/02/09
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends MyActivity {
 
 	private EditText etAccount, etPassword;
 	private Button btnLogin, btnSignUp;
+	private CheckBox ckbRemember;
 	private boolean isExit = false;
+	private SharedPreferences sharedPreferences;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +64,17 @@ public class LoginActivity extends BaseActivity {
 					Toast.makeText(LoginActivity.this, "Login successfully",
 							Toast.LENGTH_SHORT).show();
 					UserCollecter.setCurrentUser(account, password);
-					Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+
+					// 记住密码功能
+					SharedPreferences.Editor editor = sharedPreferences.edit();
+					editor.putBoolean("isRemember", false);
+					if (ckbRemember.isChecked()) {
+						editor.putString("account", account);
+						editor.putString("password", password);
+						editor.putBoolean("isRemember", true);
+					}
+					editor.apply();
+					Intent intent = new Intent(LoginActivity.this, OldHomeActivity.class);
 					startActivity(intent);
 				} else {
 					Toast.makeText(LoginActivity.this, "Login failed, please register first",
@@ -75,6 +89,16 @@ public class LoginActivity extends BaseActivity {
 		etPassword = findViewById(R.id.edittext_password);
 		btnLogin = findViewById(R.id.button_login);
 		btnSignUp = findViewById(R.id.button_signup);
+		ckbRemember = findViewById(R.id.ckb_remeber);
+
+		sharedPreferences = getSharedPreferences("savedAccountInfo", MODE_PRIVATE);
+
+		// 记住密码功能
+		if (sharedPreferences.getBoolean("isRemember", false)) {
+			etAccount.setText(sharedPreferences.getString("account", ""));
+			etPassword.setText(sharedPreferences.getString("password", ""));
+			ckbRemember.setChecked(true);
+		}
 	}
 
 	// 双击退出功能
@@ -98,7 +122,7 @@ public class LoginActivity extends BaseActivity {
 				appExit(this);
 			}
 		}
-		return false;
+		return true;
 	}
 
 	public void appExit(Context context) {

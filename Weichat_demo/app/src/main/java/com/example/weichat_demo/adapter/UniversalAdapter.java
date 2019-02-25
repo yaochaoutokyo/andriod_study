@@ -1,6 +1,7 @@
 package com.example.weichat_demo.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,6 +121,14 @@ public abstract class UniversalAdapter<T> extends BaseAdapter {
 				((ImageView) view).setImageResource(drawableRes);
 			} else {
 				view.setBackgroundResource(drawableRes);
+			}
+			return this;
+		}
+
+		public ViewHolder setImageBitmap(int id, Bitmap bitmap) {
+			View view = getView(id);
+			if (view instanceof ImageView) {
+				((ImageView) view).setImageBitmap(bitmap);
 			}
 			return this;
 		}

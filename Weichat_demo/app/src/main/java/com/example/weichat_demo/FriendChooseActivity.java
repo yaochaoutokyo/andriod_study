@@ -1,6 +1,7 @@
 package com.example.weichat_demo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -11,28 +12,38 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.example.weichat_demo.tools.BaseActivity;
+import com.example.weichat_demo.domain.FriendDO;
+import com.example.weichat_demo.template.MyActivity;
+import com.example.weichat_demo.utils.BitmapTransferUtil;
+import com.example.weichat_demo.utils.FriendRealmOp;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * Created by yaochao on 2019/02/06
  */
-public class FriendChooseActivity extends BaseActivity {
-	public int[] iconIds = {
-			R.mipmap.icon1, R.mipmap.icon2, R.mipmap.icon3, R.mipmap.icon4, R.mipmap.icon5,
-			R.mipmap.icon6, R.mipmap.icon7, R.mipmap.icon8, R.mipmap.icon9
-	};
+@Deprecated
+public class FriendChooseActivity extends MyActivity {
+
+	private List<Bitmap> bitmaps = new LinkedList<>();
+	private Realm realm;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		Log.i("test", "Choose-OnCreate()");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.choose_best_friend_activity);
+
+		initData();
 
 		GridView gridView = findViewById(R.id.grid_figure);
 		BaseAdapter baseAdapter = new BaseAdapter() {
 			@Override
 			public int getCount() {
-				return iconIds.length;
+				return bitmaps.size();
 			}
 
 			@Override
@@ -57,7 +68,7 @@ public class FriendChooseActivity extends BaseActivity {
 				} else {
 					imageView = (ImageView) convertView;
 				}
-				imageView.setImageResource(iconIds[position]);
+				imageView.setImageBitmap(bitmaps.get(position));
 				return imageView;
 			}
 		};
@@ -68,7 +79,7 @@ public class FriendChooseActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = getIntent();
 				Bundle bundle = new Bundle();
-				bundle.putInt("iconIdBestFriend", iconIds[position]);
+				bundle.putInt("bestFriendId", position);
 				intent.putExtras(bundle);
 				setResult(0x123, intent);
 				finish();
@@ -76,34 +87,12 @@ public class FriendChooseActivity extends BaseActivity {
 		});
 	}
 
-
-	@Override
-	protected void onStart() {
-		Log.i("test", "Choose-OnStart()");
-		super.onStart();
-	}
-
-	@Override
-	protected void onResume() {
-		Log.i("test", "Choose-OnResume()");
-		super.onResume();
-	}
-
-	@Override
-	protected void onPause() {
-		Log.i("test", "Choose-OnPause()");
-		super.onPause();
-	}
-
-	@Override
-	protected void onStop() {
-		Log.i("test", "Choose-OnStop()");
-		super.onStop();
-	}
-
-	@Override
-	protected void onDestroy() {
-		Log.i("test", "Choose-OnDestroy()");
-		super.onDestroy();
+	private void initData() {
+		realm = FriendRealmOp.getRealm();
+		RealmResults<FriendDO> friendDOs = FriendRealmOp.selectAll(realm);
+		for (int i = 0; i < friendDOs.size(); i++) {
+			bitmaps.add(BitmapTransferUtil.BytesToBitmap(friendDOs.get(i).getIconBytes()));
+		}
+		realm.close();
 	}
 }

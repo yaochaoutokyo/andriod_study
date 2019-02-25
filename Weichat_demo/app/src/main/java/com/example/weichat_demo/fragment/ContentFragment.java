@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.weichat_demo.R;
 
-
+@Deprecated
 public class ContentFragment extends Fragment {
 	// TODO: Rename parameter arguments, choose names that match
 	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

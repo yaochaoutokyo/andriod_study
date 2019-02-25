@@ -1,4 +1,4 @@
-package com.example.weichat_demo.tools;
+package com.example.weichat_demo.utils;
 
 import com.example.weichat_demo.entity.User;
 

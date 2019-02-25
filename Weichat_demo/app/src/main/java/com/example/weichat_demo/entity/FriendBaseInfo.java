@@ -1,11 +1,13 @@
 package com.example.weichat_demo.entity;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by yaochao on 2019/02/03
  */
 public class FriendBaseInfo {
 
-	private int iconId;
+	private Bitmap iconBitmap;
 
 	private String name;
 
@@ -14,18 +16,18 @@ public class FriendBaseInfo {
 	public FriendBaseInfo() {
 	}
 
-	public FriendBaseInfo(int iconId, String name, String says) {
-		this.iconId = iconId;
+	public FriendBaseInfo(Bitmap iconBitmap, String name, String says) {
+		this.iconBitmap = iconBitmap;
 		this.name = name;
 		this.says = says;
 	}
 
-	public int getIconId() {
-		return iconId;
+	public Bitmap getIconBitmap() {
+		return iconBitmap;
 	}
 
-	public void setIconId(int iconId) {
-		this.iconId = iconId;
+	public void setIconBitmap(Bitmap iconBitmap) {
+		this.iconBitmap = iconBitmap;
 	}
 
 	public String getName() {

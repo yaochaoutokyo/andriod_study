@@ -6,60 +6,154 @@
         android:id="@+id/big_figure"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitXY"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/big_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/detail_linear_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/big_figure"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"/>
-
-    <TextView
-        android:id="@+id/big_says"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/big_name"
         android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"/>
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/big_name_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="name: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/big_name"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_marginRight="30dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_linear_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_linear_1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/big_says_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="self-intro: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/big_says"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_linear_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_linear_2"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/big_phone_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="phone: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/big_phone"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_linear_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_linear_3"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/big_email_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="email: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/big_email"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/linear_choose"
-        android:layout_width="wrap_content"
+        android:id="@+id/detail_linear_5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@id/detail_linear_4"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_below="@id/big_says"
         android:layout_marginTop="5dp">
 
         <TextView
-            android:id="@+id/textview_best_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Best friend: "
-            android:textSize="20dp"/>
-
-        <ImageView
-            android:id="@+id/figure_best_friend"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            android:scaleType="centerInside" />
-
-        <Button
-            android:id="@+id/btn_choose_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="choose" />
+            android:textSize="20sp"
+            android:text="Best friend: "/>
+
+        <Spinner
+            android:id="@+id/spinner_best_friend"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"></Spinner>
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_edit_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_linear_5"
+        android:layout_marginTop="5dp"
+        android:text="apply change"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
